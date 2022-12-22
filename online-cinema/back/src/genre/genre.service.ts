@@ -1,17 +1,22 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { ModelType } from '@typegoose/typegoose/lib/types';
 import { InjectModel } from 'nestjs-typegoose';
+import { MovieService } from 'src/movie/movie.service';
 import { CreateGenreDto } from './dto/create-genre.dto';
+import { ICollection } from './genre.interface';
 import { GenreModel } from './genre.model';
 
 @Injectable()
 export class GenreService {
 	constructor(
 		@InjectModel(GenreModel) private readonly genreModel: ModelType<GenreModel>,
+		private readonly movieService: MovieService,
 	) {}
 
 	async bySlug(slug: string) {
-		return this.genreModel.findOne({ slug }).exec();
+		const genre = await this.genreModel.findOne({ slug }).exec();
+		if (!genre) throw new NotFoundException('Actor not found');
+		return genre;
 	}
 
 	async getAll(searchTerm?: string) {
@@ -37,7 +42,21 @@ export class GenreService {
 
 	async getCollections() {
 		const genres = await this.getAll();
-		const collections = genres;
+		const collections = await Promise.all(
+			genres.map(async (genre) => {
+				const movieByGenre = await this.movieService.byGenres([genre._id]);
+				const poster = movieByGenre[0]?.bigPoster
+					? movieByGenre[0].bigPoster
+					: '';
+				const result: ICollection = {
+					_id: String(genre._id),
+					image: poster,
+					slug: genre.slug,
+					title: genre.name,
+				};
+				return result;
+			}),
+		);
 		return collections;
 	}
 
