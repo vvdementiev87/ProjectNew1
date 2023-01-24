@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-import logoImage from '@/assets/images/logo.png';
+import logoImage from '@/assets/images/logo.svg';
 
 type Props = {};
 
