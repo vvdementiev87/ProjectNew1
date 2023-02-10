@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { SubmitHandler } from 'react-hook-form/dist/types';
 
+import { useActions } from '@/hooks/useActions';
 import { useAuth } from '@/hooks/useAuth';
 
 import Meta from '@/utils/meta/Meta';
@@ -28,12 +29,7 @@ const Auth = (props: Props) => {
 		reset,
 	} = useForm<IAuthInput>({ mode: 'onChange' });
 
-	const login = (data) => {
-		console.log(data);
-	};
-	const register = (data) => {
-		console.log(data);
-	};
+	const { login, register } = useActions();
 
 	const onSubmit: SubmitHandler<IAuthInput> = (data) => {
 		if (type === 'login') login(data);
