@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+@import 'react-redux-toastr/src/styles/index';
 
 * {
 	box-sizing: border-box;
@@ -12,6 +13,7 @@
 
 html,
 body {
+	font-family: 'Outfit', sans-serif;
 	max-width: 100vw;
 	overflow-x: hidden;
 	overflow-y: hidden;
@@ -24,15 +26,15 @@ a {
 	text-decoration: none;
 }
 
-:root{
-  --primary-color:#e30b13;
+:root {
+	--primary-color: #e30b13;
 }
 
 input[type='file'],
-input[type='file']::-webkit-file-upload-button{
-  @apply cursor-pointer focus:outline-none;
+input[type='file']::-webkit-file-upload-button {
+	@apply cursor-pointer focus:outline-none;
 }
 
-input:focus{
-  box-shadow: none !important;
+input:focus {
+	box-shadow: none !important;
 }
