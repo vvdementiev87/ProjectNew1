@@ -1,12 +1,11 @@
-import React from 'react'
-import { NextPage } from 'next';
+import React from 'react';
 
+import { NextPageAuth } from '@/shared/types/auth.types';
 
+const AdminPage: NextPageAuth = () => {
+	return <div>index</div>;
+};
 
-const AdminPage:NextPage = () => {
-  return (
-    <div>index</div>
-  )
-}
+AdminPage.isOnlyAdmin = true;
 
-export default AdminPage
+export default AdminPage;
