@@ -64,7 +64,6 @@ export class UserController {
 	}
 
 	@Get('count')
-	@Auth('admin')
 	async getCountUsers() {
 		return this.userService.getCount();
 	}

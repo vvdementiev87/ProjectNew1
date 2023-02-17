@@ -1,0 +1,32 @@
+.statistics {
+	@apply mt-10 flex items-stretch;
+
+	.block {
+		@apply air-block flex w-2/5 flex-col items-center;
+	}
+
+	.countUsers {
+		@apply mr-28 flex items-center justify-center text-center;
+
+		.number {
+			@apply mb-1 text-7xl font-medium;
+		}
+
+		.description {
+			@apply text-lg opacity-70;
+		}
+	}
+	.popular {
+		@apply p-5 text-center;
+
+		img {
+			@apply rounded-layout shadow-lg image-like-bg;
+		}
+		h2 {
+			@apply mb-1;
+		}
+		h3 {
+			@apply mb-3 font-medium opacity-50;
+		}
+	}
+}

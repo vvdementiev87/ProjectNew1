@@ -1,9 +1,11 @@
 import React from 'react';
 
+import Admin from '@/components/screens/admin/Admin';
+
 import { NextPageAuth } from '@/shared/types/auth.types';
 
 const AdminPage: NextPageAuth = () => {
-	return <div>index</div>;
+	return <Admin />;
 };
 
 AdminPage.isOnlyAdmin = true;
