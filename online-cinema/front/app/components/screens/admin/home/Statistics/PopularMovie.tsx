@@ -4,10 +4,12 @@ import Link from 'next/link';
 import React from 'react';
 import { useQuery } from 'react-query';
 
+import { IMovie } from '@/shared/types/movie.types';
+
 import { MovieService } from '@/services/movie.service';
 
-import { getMovieUrl } from '../../../../config/url.config';
-import { IMovie } from '../../../../shared/types/movie.types';
+import { getMovieUrl } from '@/config/url.config';
+
 import styles from '../Admin.module.scss';
 import SkeletonLoader from 'ui/SkeletonLoader';
 import SubHeading from 'ui/heading/SubHeading';

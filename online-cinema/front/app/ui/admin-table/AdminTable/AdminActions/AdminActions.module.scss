@@ -1,0 +1,11 @@
+.actions {
+	@apply flex items-center;
+
+	> button {
+		@apply bg-transparent text-xl text-primary opacity-80 transition-opacity outline-border-none hover:opacity-100;
+
+		&:first-child {
+			@apply mr-4;
+		}
+	}
+}
