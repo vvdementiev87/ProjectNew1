@@ -14,14 +14,14 @@ import Field from 'ui/form-elements/Field';
 import SlugField from 'ui/form-elements/SlugField/SlugField';
 import Heading from 'ui/heading/Heading';
 
-import { IGenreEditInput } from './genre-edit.interface';
-import { useGenreEdit } from './useGenreEdit';
+import { IActorEditInput } from './actor-edit.interface';
+import { useActorEdit } from './useActorEdit';
 
 const DynamicTextEditor = dynamic(() => import('ui/form-elements/TextEditor'), {
 	ssr: false,
 });
 
-const GenreEdit: FC = () => {
+const ActorEdit: FC = () => {
 	const {
 		handleSubmit,
 		register,
@@ -29,16 +29,16 @@ const GenreEdit: FC = () => {
 		setValue,
 		getValues,
 		control,
-	} = useForm<IGenreEditInput>({
+	} = useForm<IActorEditInput>({
 		mode: 'onChange',
 	});
 
-	const { isLoading, onSubmit } = useGenreEdit(setValue);
+	const { isLoading, onSubmit } = useActorEdit(setValue);
 
 	return (
-		<Meta seo={{ title: 'Edit genre' }}>
+		<Meta seo={{ title: 'Edit actor' }}>
 			<AdminNavigation />
-			<Heading title="Edit genre" />
+			<Heading title="Edit actor" />
 			<form onSubmit={handleSubmit(onSubmit)} className={formStyles.form}>
 				{isLoading ? (
 					<SkeletonLoader count={3} />
@@ -49,9 +49,8 @@ const GenreEdit: FC = () => {
 								{...register('name', { required: 'Name is required' })}
 								placeholder="Name"
 								error={errors.name}
-								style={{ width: '31%' }}
 							/>
-							<div style={{ width: '31%' }}>
+							<div>
 								<SlugField
 									register={register}
 									error={errors.slug}
@@ -60,16 +59,10 @@ const GenreEdit: FC = () => {
 									}}
 								/>
 							</div>
-							<Field
-								{...register('icon', { required: 'Icon is required' })}
-								placeholder="Icon"
-								error={errors.icon}
-								style={{ width: '31%' }}
-							/>
-						</div>
-						<Controller
+
+							{/* <Controller
 							control={control}
-							name="description"
+							name="photo"
 							defaultValue=""
 							render={({
 								field: { value, onChange },
@@ -79,17 +72,18 @@ const GenreEdit: FC = () => {
 									onChange={onChange}
 									value={value}
 									error={error}
-									placeholder="Description"
+									placeholder="Photo"
 								/>
 							)}
 							rules={{
 								validate: {
 									required: (v) =>
 										(v && stripHtml(v).result.length > 0) ||
-										'Description is requires',
+										'Photo is requires',
 								},
 							}}
-						/>
+						/> */}
+						</div>
 						<Button>Update</Button>
 					</>
 				)}
@@ -98,4 +92,4 @@ const GenreEdit: FC = () => {
 	);
 };
 
-export default GenreEdit;
+export default ActorEdit;

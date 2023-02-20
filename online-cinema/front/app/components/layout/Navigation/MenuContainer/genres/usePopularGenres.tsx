@@ -13,6 +13,7 @@ export const usePopularGeners = () => {
 		{
 			select: ({ data }) =>
 				data
+					.filter((genre) => genre.icon)
 					.map(
 						(genre) =>
 							({

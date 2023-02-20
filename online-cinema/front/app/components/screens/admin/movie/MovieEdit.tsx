@@ -14,14 +14,14 @@ import Field from 'ui/form-elements/Field';
 import SlugField from 'ui/form-elements/SlugField/SlugField';
 import Heading from 'ui/heading/Heading';
 
-import { IGenreEditInput } from './genre-edit.interface';
-import { useGenreEdit } from './useGenreEdit';
+import { IActorEditInput } from './actor-edit.interface';
+import { useActorEdit } from './useActorEdit';
 
 const DynamicTextEditor = dynamic(() => import('ui/form-elements/TextEditor'), {
 	ssr: false,
 });
 
-const GenreEdit: FC = () => {
+const MovieEdit: FC = () => {
 	const {
 		handleSubmit,
 		register,
@@ -29,16 +29,16 @@ const GenreEdit: FC = () => {
 		setValue,
 		getValues,
 		control,
-	} = useForm<IGenreEditInput>({
+	} = useForm<IActorEditInput>({
 		mode: 'onChange',
 	});
 
-	const { isLoading, onSubmit } = useGenreEdit(setValue);
+	const { isLoading, onSubmit } = useActorEdit(setValue);
 
 	return (
-		<Meta seo={{ title: 'Edit genre' }}>
+		<Meta seo={{ title: 'Edit actor' }}>
 			<AdminNavigation />
-			<Heading title="Edit genre" />
+			<Heading title="Edit actor" />
 			<form onSubmit={handleSubmit(onSubmit)} className={formStyles.form}>
 				{isLoading ? (
 					<SkeletonLoader count={3} />
@@ -98,4 +98,4 @@ const GenreEdit: FC = () => {
 	);
 };
 
-export default GenreEdit;
+export default MovieEdit;

@@ -12,12 +12,23 @@ import { useMovie } from './useMovie';
 type Props = {};
 
 const MovieList = (props: Props) => {
-	const { handleSearch, isLoading, searchTerm, data, deleteAsync } = useMovie();
+	const {
+		handleSearch,
+		isLoading,
+		searchTerm,
+		data,
+		deleteAsync,
+		createAsync,
+	} = useMovie();
 	return (
 		<Meta seo={{ title: 'Movies' }}>
 			<AdminNavigation />
 			<Heading title="Movies" />
-			<AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} />
+			<AdminHeader
+				handleSearch={handleSearch}
+				searchTerm={searchTerm}
+				onClick={createAsync}
+			/>
 			<AdminTable
 				isLoading={isLoading}
 				removeHandler={deleteAsync}

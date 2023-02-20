@@ -12,12 +12,23 @@ import { useGenre } from './useGenre';
 type Props = {};
 
 const GenreList = (props: Props) => {
-	const { handleSearch, isLoading, searchTerm, data, deleteAsync } = useGenre();
+	const {
+		handleSearch,
+		isLoading,
+		searchTerm,
+		data,
+		deleteAsync,
+		createAsync,
+	} = useGenre();
 	return (
 		<Meta seo={{ title: 'Genres' }}>
 			<AdminNavigation />
 			<Heading title="Genres" />
-			<AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} />
+			<AdminHeader
+				handleSearch={handleSearch}
+				searchTerm={searchTerm}
+				onClick={createAsync}
+			/>
 			<AdminTable
 				isLoading={isLoading}
 				removeHandler={deleteAsync}

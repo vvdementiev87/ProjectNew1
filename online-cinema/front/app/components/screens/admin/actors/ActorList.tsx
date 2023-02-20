@@ -12,12 +12,23 @@ import { useActor } from './useActor';
 type Props = {};
 
 const ActorList = (props: Props) => {
-	const { handleSearch, isLoading, searchTerm, data, deleteAsync } = useActor();
+	const {
+		handleSearch,
+		isLoading,
+		searchTerm,
+		data,
+		deleteAsync,
+		createAsync,
+	} = useActor();
 	return (
 		<Meta seo={{ title: 'Actors' }}>
 			<AdminNavigation />
 			<Heading title="Actors" />
-			<AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} />
+			<AdminHeader
+				handleSearch={handleSearch}
+				searchTerm={searchTerm}
+				onClick={createAsync}
+			/>
 			<AdminTable
 				isLoading={isLoading}
 				removeHandler={deleteAsync}
