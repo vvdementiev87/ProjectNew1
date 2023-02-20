@@ -38,3 +38,42 @@
 		}
 	}
 }
+
+.uploadField {
+	@apply relative;
+	.uploadFlex {
+		@apply flex;
+
+		> .uploadImageContainer {
+			@apply relative h-24 w-24 shrink-0;
+
+			img {
+				@apply rounded-md image-like-bg;
+			}
+
+			> span {
+				@apply animate-fade;
+			}
+		}
+
+		> label {
+			@apply mr-6 block;
+
+			.error {
+				@apply relative -bottom-3;
+			}
+
+			> span {
+				@apply mb-4 block text-xs uppercase text-gray-600;
+			}
+
+			> input {
+				@apply block w-full text-sm text-gray-600 opacity-70 transition-opacity file:mr-4 file:rounded-full file:border-0 file:bg-primary file:py-2 file:text-sm file:font-semibold file:text-white;
+			}
+
+			&:hover > input {
+				@apply opacity-100;
+			}
+		}
+	}
+}

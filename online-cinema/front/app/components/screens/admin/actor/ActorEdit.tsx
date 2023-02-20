@@ -12,6 +12,7 @@ import AdminNavigation from 'ui/admin-navigation/AdminNavigation';
 import Button from 'ui/form-elements/Button';
 import Field from 'ui/form-elements/Field';
 import SlugField from 'ui/form-elements/SlugField/SlugField';
+import UploadField from 'ui/form-elements/UploadField/UploadField';
 import Heading from 'ui/heading/Heading';
 
 import { IActorEditInput } from './actor-edit.interface';
@@ -60,29 +61,26 @@ const ActorEdit: FC = () => {
 								/>
 							</div>
 
-							{/* <Controller
-							control={control}
-							name="photo"
-							defaultValue=""
-							render={({
-								field: { value, onChange },
-								fieldState: { error },
-							}) => (
-								<DynamicTextEditor
-									onChange={onChange}
-									value={value}
-									error={error}
-									placeholder="Photo"
-								/>
-							)}
-							rules={{
-								validate: {
-									required: (v) =>
-										(v && stripHtml(v).result.length > 0) ||
-										'Photo is requires',
-								},
-							}}
-						/> */}
+							<Controller
+								control={control}
+								name="photo"
+								defaultValue=""
+								render={({
+									field: { value, onChange },
+									fieldState: { error },
+								}) => (
+									<UploadField
+										onChange={onChange}
+										value={value}
+										error={error}
+										folder="actors"
+										placeholder="Photo"
+									/>
+								)}
+								rules={{
+									required: 'Photo is required',
+								}}
+							/>
 						</div>
 						<Button>Update</Button>
 					</>
