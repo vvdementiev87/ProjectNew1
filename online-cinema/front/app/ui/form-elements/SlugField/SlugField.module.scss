@@ -1,0 +1,7 @@
+.slug {
+	@apply relative;
+}
+.badge {
+	@apply absolute top-6 right-3 cursor-pointer rounded-lg border-gray-500 bg-gray-500 py-0.5
+    px-2 text-xs uppercase text-gray-800 transition-colors hover:bg-gray-300;
+}

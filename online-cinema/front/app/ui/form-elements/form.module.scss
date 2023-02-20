@@ -19,3 +19,22 @@
 .error {
 	@apply absolute -bottom-6 left-0 w-full text-sm text-primary;
 }
+
+.editorWrapper {
+	@apply border-0;
+
+	.wrapper {
+		.toolbar {
+			@apply mt-4 mb-0 rounded-t-lg bg-gray-600 bg-opacity-40 p-3 outline-border-none;
+			> div {
+				@apply m-0;
+				> div {
+					@apply mx-1.5 border-gray-500 bg-gray-500 shadow-none transition-colors outline-border-none hover:bg-gray-300;
+				}
+			}
+		}
+		.editor {
+			@apply h-96 overflow-hidden rounded-b-lg border border-gray-700 px-4 text-gray-500;
+		}
+	}
+}
