@@ -43,3 +43,23 @@ input:focus {
 .admin-form {
 	@apply mt-12 w-1/2;
 }
+
+.slide-animation-enter {
+	opacity: 0;
+	transform: scale(0.9);
+}
+
+.slide-animation-enter-acitve {
+	opacity: 1;
+	transform: translateX(0);
+	transition: opacity 300ms, transform 300ms;
+}
+
+.slide-animation-exit {
+	opacity: 1;
+}
+.slide-animation-exit-acitve {
+	opacity: 0;
+	transform: scale(0.9);
+	transition: opacity 300ms, transform 300ms;
+}

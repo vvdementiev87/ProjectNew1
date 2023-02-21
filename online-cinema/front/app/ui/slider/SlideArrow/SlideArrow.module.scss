@@ -1,0 +1,11 @@
+.arrow {
+	@apply absolute bottom-0 z-20 flex animate-fade items-center justify-center rounded-full bg-white bg-opacity-30 p-2 text-2xl text-white;
+
+	&.left {
+		@apply right-24;
+	}
+
+	&.right {
+		@apply right-8;
+	}
+}

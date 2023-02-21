@@ -1,9 +1,11 @@
 import React from 'react';
 
+import Profile from '@/components/screens/profile/Profile';
+
 import { NextPageAuth } from '@/shared/types/auth.types';
 
 const ProfilePage: NextPageAuth = () => {
-	return <div>profile</div>;
+	return <Profile />;
 };
 ProfilePage.isOnlyUser = true;
 

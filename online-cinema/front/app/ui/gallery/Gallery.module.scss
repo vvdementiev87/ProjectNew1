@@ -1,0 +1,51 @@
+@import '../../assets/styles/_variables.scss';
+
+.gallery {
+	@apply flex flex-nowrap items-center overflow-x-auto py-3;
+	-webkit-overflow-scrolling: touch;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+.item {
+	@apply relative flex items-end overflow-hidden rounded-layout shadow-lg transition-transform;
+	flex: 0 0 auto;
+
+	&:hover {
+		transform: translateY(-5px);
+	}
+
+	&.vertical {
+		@apply mr-4 h-72 w-1/5 last:mr-0;
+		max-width: 200px;
+	}
+
+	&.horizontal {
+		@apply mb-8 h-44;
+		width: 31%;
+	}
+	&.withText {
+		@include fade-bg-gradient(0deg);
+		&::before {
+			@apply rounded-layout;
+		}
+	}
+
+	img {
+		@apply image-like-bg;
+	}
+
+	.content {
+		@apply relative z-2 m-3 w-full text-center;
+
+		.title {
+			@apply mb-1 font-semibold text-white text-shadow;
+		}
+
+		.subTitle {
+			@apply text-gray-500 text-shadow;
+		}
+	}
+}
