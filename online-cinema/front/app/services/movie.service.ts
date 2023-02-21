@@ -44,4 +44,8 @@ export const MovieService = {
 	async deleteMovie(_id: string) {
 		return axios.delete<string>(getMoviesUrl(`/${_id}`));
 	},
+
+	async getBySlug(slug: string) {
+		return axiosClassic.get<IMovie>(getMoviesUrl(`/by-slug/${slug}`));
+	},
 };
