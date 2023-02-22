@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
 
-import { getActorsUrl, getGenresUrl } from '../../../../config/api.config';
+
 import { IMovie } from '../../../../shared/types/movie.types';
 import MaterialIcon from 'ui/MaterialIcon';
 
 import styles from './Content.module.scss';
 import ContentList from './ContentList/ContentList';
+import { getActorUrl, getGenreUrl } from '@/config/url.config';
 
 const Content: FC<{ movie: IMovie }> = ({ movie }) => {
 	return (
@@ -20,7 +21,7 @@ const Content: FC<{ movie: IMovie }> = ({ movie }) => {
 				name={'Genres'}
 				links={movie.genres.slice(0, 3).map((g) => ({
 					_id: g._id,
-					link: getGenresUrl(g.slug),
+					link: getGenreUrl(g.slug),
 					title: g.name,
 				}))}
 			/>
@@ -28,7 +29,7 @@ const Content: FC<{ movie: IMovie }> = ({ movie }) => {
 				name={'Actors'}
 				links={movie.actors.slice(0, 3).map((a) => ({
 					_id: a._id,
-					link: getActorsUrl(a.slug),
+					link: getActorUrl(a.slug),
 					title: a.name,
 				}))}
 			/>

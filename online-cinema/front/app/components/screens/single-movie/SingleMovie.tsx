@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import React, { FC } from 'react';
 
 import Meta from '@/utils/meta/Meta';
@@ -9,6 +10,10 @@ import Gallery from 'ui/gallery/Gallery';
 
 import Content from './Content/Content';
 
+const DynamicPlayer = dynamic(() => import('ui/video-player/VideoPlayer'), {
+	ssr: false,
+});
+
 const SingleMovie: FC<IMoviePage> = ({ movie, similarMovies }) => {
 	return (
 		<Meta seo={{ title: movie.title, description: `Watch ${movie?.title}` }}>
@@ -16,6 +21,7 @@ const SingleMovie: FC<IMoviePage> = ({ movie, similarMovies }) => {
 				image={movie.bigPoster}
 				Detail={() => <Content movie={movie} />}
 			/>
+			<DynamicPlayer slug={movie.slug} videoSource={movie.videoUrl} />
 			<div className={'mt-12'}>
 				<SubHeading title="Similar Movies" />
 				<Gallery items={similarMovies} />
