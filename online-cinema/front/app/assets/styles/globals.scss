@@ -16,8 +16,6 @@ html,
 body {
 	font-family: 'Outfit', sans-serif;
 	max-width: 100vw;
-	overflow-x: hidden;
-	overflow-y: hidden;
 
 	@apply bg-gray-950;
 }
@@ -62,4 +60,21 @@ input:focus {
 	opacity: 0;
 	transform: scale(0.9);
 	transition: opacity 300ms, transform 300ms;
+}
+
+.scrollbar::-webkit-scrollbar {
+	width: 20px;
+	height: 20px;
+}
+.scrollbar::-webkit-scrollbar-track {
+	border-radius: 100vh;
+	background: #f7f4ed;
+}
+.scrollbar::-webkit-scrollbar-thumb {
+	background: #e0cbcb;
+	border-radius: 100vh;
+	border: 3px solid #f6f7ed;
+}
+.scrollbar::-webkit-scrollbar-thumb:hover {
+	background: #c0a0b9;
 }

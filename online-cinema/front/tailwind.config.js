@@ -81,6 +81,23 @@ module.exports = {
 	plugins: [
 		require('@tailwindcss/forms'),
 		require('@tailwindcss/aspect-ratio'),
+		require('@gradin/tailwindcss-scrollbar')({
+			size: '5px', // width or height, default '5px'
+			track: {
+				background: '#191B1f', // default '#f1f1f1'
+				// add any css attributes here, will be merged to ::-webkit-scrollbar-track
+			},
+			thumb: {
+				background: '#E30B13', // default '#c1c1c1'
+				borderRadius: '40px',
+				// add any css attributes here, will be merged to ::-webkit-scrollbar-thumb
+			},
+			hover: {
+				background: '#450f08', // default '#a8a8a8'
+				borderRadius: '40px',
+				// add any css attributes here, will be merged to ::-webkit-scrollbar-thumb:hover
+			},
+		}),
 		plugin(({ addComponents, theme, addUtilities }) => {
 			addComponents({
 				'.btn-primary': {

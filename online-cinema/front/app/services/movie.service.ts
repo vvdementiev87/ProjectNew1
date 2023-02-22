@@ -48,4 +48,10 @@ export const MovieService = {
 	async getBySlug(slug: string) {
 		return axiosClassic.get<IMovie>(getMoviesUrl(`/by-slug/${slug}`));
 	},
+
+	async updateCountOpened(slug: string) {
+		return axiosClassic.put<string>(getMoviesUrl(`/update-count-opened`), {
+			slug,
+		});
+	},
 };

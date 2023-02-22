@@ -7,6 +7,8 @@ import { IHome } from '@/components/screens/home/home.interface';
 import { ActorService } from '@/services/actor.service';
 import { MovieService } from '@/services/movie.service';
 
+import { getMoviesUrl } from '@/config/api.config';
+
 import { getActorUrl, getMovieUrl } from '../app/config/url.config';
 import { IGalleryItem } from '../app/ui/gallery/gallery.interface';
 import { getGenresList } from '../app/utils/movie/getGenresList';
@@ -43,7 +45,7 @@ export const getStaticProps: GetStaticProps = async () => {
 		const trendingMovies = dataMovies.slice(0, 7).map((m) => ({
 			name: m.title,
 			posterPath: m.poster,
-			link: getActorUrl(m.slug),
+			link: getMovieUrl(m.slug),
 		}));
 
 		return {

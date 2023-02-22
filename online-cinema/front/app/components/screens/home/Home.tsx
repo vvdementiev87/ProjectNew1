@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { toastr } from 'react-redux-toastr';
 
 import Meta from '@/utils/meta/Meta';
 
