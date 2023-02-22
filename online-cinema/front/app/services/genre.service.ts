@@ -7,6 +7,8 @@ import { IGenre } from '@/shared/types/movie.types';
 
 import { getGenresUrl } from '@/config/api.config';
 
+import { ICollection } from '../components/screens/collections/collections.interface';
+
 export const GenreService = {
 	async getAll(searchTerm?: string) {
 		return axiosClassic.get<IGenre[]>(getGenresUrl(''), {
@@ -32,5 +34,9 @@ export const GenreService = {
 
 	async deleteGenre(_id: string) {
 		return axios.delete<string>(getGenresUrl(`/${_id}`));
+	},
+
+	async getCollections() {
+		return axiosClassic.get<ICollection[]>(getGenresUrl(`/collections`));
 	},
 };
