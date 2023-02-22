@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
 
+import { getActorUrl, getGenreUrl } from '@/config/url.config';
 
 import { IMovie } from '../../../../shared/types/movie.types';
+import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import MaterialIcon from 'ui/MaterialIcon';
 
 import styles from './Content.module.scss';
 import ContentList from './ContentList/ContentList';
-import { getActorUrl, getGenreUrl } from '@/config/url.config';
 
 const Content: FC<{ movie: IMovie }> = ({ movie }) => {
 	return (
@@ -37,6 +38,7 @@ const Content: FC<{ movie: IMovie }> = ({ movie }) => {
 				<MaterialIcon name="MdStarRate" />
 				<span>{movie.rating.toFixed(1)}</span>
 			</div>
+			<FavoriteButton movieId={movie._id} />
 		</div>
 	);
 };
